@@ -4,8 +4,8 @@ var randomButton = document.querySelector(".random-cover-button");
 var saveButton = document.querySelector(".save-cover-button");
 var viewSavedButton = document.querySelector(".view-saved-button");
 var makeNewButton = document.querySelector(".make-new-button");
-
 var customBookButton = document.querySelector(".create-new-book-button");
+
 
 //PAGE VIEWS
 var homeView = document.querySelector('.home-view');
@@ -17,6 +17,7 @@ var coverImage = document.querySelector(".cover-image");
 var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
+// var viewSavedCover = document.querySelector(."saved-covers-section")
 
 //RANDOM COVER ELEMENTS
 var randomImage = covers[getRandomIndex(covers)];
@@ -40,13 +41,14 @@ coverTitle.innerText = currentCover.title;
 tagline1.innerText = currentCover.tagline1;
 tagline2.innerText = currentCover.tagline2;
 
+
+
 //EVENT LISTENERS
 //buttons
 randomButton.addEventListener("click", newRandomCover);
 makeNewButton.addEventListener("click", showForm);
 viewSavedButton.addEventListener("click", showSaved);
 homeButton.addEventListener("click", showHome);
-
 customBookButton.addEventListener("click", makeCustomBook);
 
 //fields
@@ -106,18 +108,28 @@ function showHome() {
 };
 
 function makeCustomBook() {
+event.preventDefault()
   var userSrc = document.querySelector("#cover").value;
   var userTitle = document.querySelector("#title").value;
   var userDesc1 = document.querySelector("#descriptor1").value;
   var userDesc2 = document.querySelector("#descriptor2").value;
+    covers.push(userSrc)
+    titles.push(userTitle)
+    descriptors.push(userDesc1)
+    descriptors.push(userDesc2)
+  var newUserCover = new Cover (userSrc, userTitle, userDesc1, userDesc2 );
+showHome()
+displayMadeCover(newUserCover)
+};
 
-  var userCover = new Cover(userSrc, userTitle, userDesc1, userDesc2);
+function displayMadeCover(madeCover){
+  coverImage.src = madeCover.cover;
+  coverTitle.innerText = madeCover.title;
+  tagline1.innerText = madeCover.tagline1;
+  tagline2.innerText = madeCover.tagline2;
+};
 
-  covers.push(userSrc);
-  titles.push(userTitle);
-  descriptors.push(userDesc1, userDesc2);
 
-}
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
