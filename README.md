@@ -14,7 +14,8 @@ We built a web application that generates custom and random book covers, titles 
 ### Preview of App:
 [//]: <> (Provide ONE gif o![Uploading Screen Shot 2022-09-03 at 11.49.44 AM.png…]()
 r screenshot of your application - choose the "coolest" piece of functionality to show off.)
-![image]([files/Users/jzhang/Desktop/Isolated.png](https://imgur.com/Qpn9v04))
+<img width="1680" alt="Screen Shot 2022-09-03 at 11 49 44 AM" src="https://user-images.githubusercontent.com/107894408/188283320-6ec7e93a-caac-41e7-a6df-0baf451fd862.png">
+
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
 The project was our week 2 partner project in Turing FE program, and our first collabrative project. We were given 5 days to complete the project. In the 5 days we worked on it every day for approx. 4-6 hours a day.
