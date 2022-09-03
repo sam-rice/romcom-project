@@ -12,8 +12,7 @@ We built a web application that generates custom and random book covers, titles 
 4. Open it in your text editor
 5. View the project in the browser by running open index.html in your terminal
 ### Preview of App:
-[//]: <> (Provide ONE gif o![Uploading Screen Shot 2022-09-03 at 11.49.44 AM.png…]()
-r screenshot of your application - choose the "coolest" piece of functionality to show off.)
+[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
 <img width="1680" alt="Screen Shot 2022-09-03 at 11 49 44 AM" src="https://user-images.githubusercontent.com/107894408/188283320-6ec7e93a-caac-41e7-a6df-0baf451fd862.png">
 
 ### Context:
