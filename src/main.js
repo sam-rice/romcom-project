@@ -17,7 +17,6 @@ var coverImage = document.querySelector(".cover-image");
 var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
-// var viewSavedCover = document.querySelector(."saved-covers-section")
 
 //RANDOM COVER ELEMENTS
 var randomImage = covers[getRandomIndex(covers)];
@@ -28,14 +27,16 @@ var randomTagline2 = descriptors[getRandomIndex(descriptors)];
 //INPUT FIELDS
 var allFields = document.querySelector(".form-view");
 
-// We've provided a few variables below
+//SAVED COVERS PAGE
+
+var savedCoversGallery = document.querySelector(".saved-covers-section");
+
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 
 //DEFAULT HOME PAGE
 var currentCover = new Cover(randomImage, randomTitle, randomTagline1, randomTagline2);
-
 
 coverImage.src = currentCover.cover;
 coverTitle.innerText = currentCover.title;
@@ -52,10 +53,6 @@ viewSavedButton.addEventListener("click", showSaved);
 homeButton.addEventListener("click", showHome);
 customBookButton.addEventListener("click", makeCustomBook);
 saveButton.addEventListener("click", storeCover);
-
-//fields
-
-
 
 //EVENT HANDLERS/MISC FUNCTIONS
 
@@ -97,6 +94,17 @@ function showSaved() {
   saveButton.classList.add("hidden");
   randomButton.classList.add("hidden");
   viewSavedButton.classList.remove("hidden");
+
+  for (var i = 0; i < savedCovers.length; i++) {
+    savedCoversGallery.innerHTML = savedCoversGallery.innerHTML + 
+      `<section class="main-cover">
+      <img class="cover-image" src="${savedCovers[i].cover}"> 
+      <h2 class="cover-title">${savedCovers[i].title}</h2> 
+      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+      <img class="price-tag" src="./assets/price.png"> 
+      <img class="overlay" src="./assets/overlay.png">
+      </section>`
+  };
 };
 
 function showHome() {
@@ -111,16 +119,16 @@ function showHome() {
 };
 
 function makeCustomBook() {
-  event.preventDefault()
+  event.preventDefault();
   var userSrc = document.querySelector("#cover").value;
   var userTitle = document.querySelector("#title").value;
   var userDesc1 = document.querySelector("#descriptor1").value;
   var userDesc2 = document.querySelector("#descriptor2").value;
   
-  covers.push(userSrc)
-  titles.push(userTitle)
-  descriptors.push(userDesc1)
-  descriptors.push(userDesc2)
+  covers.push(userSrc);
+  titles.push(userTitle);
+  descriptors.push(userDesc1);
+  descriptors.push(userDesc2);
   
   var newUserCover = new Cover (userSrc, userTitle, userDesc1, userDesc2);
   
@@ -136,22 +144,12 @@ function displayMadeCover(madeCover) {
   tagline1.innerText = madeCover.tagline1;
   tagline2.innerText = madeCover.tagline2;
 };
- 
+
 function storeCover() {
-      if (!savedCovers.includes(currentCover)) {
-        savedCovers.push(currentCover);
-      };
-    };
-
-// function storeCover(queuedUserCover) {
-//   for (var i = 0; i < savedCovers.length; i++) {
-//     if (savedCovers[i].id === queuedUserCover.id) {
-//       savedCovers.push(queuedUserCover);
-//     };
-//   };
-// };
-
-
+  if (!savedCovers.includes(currentCover)) {
+     savedCovers.push(currentCover);
+  };
+};
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
